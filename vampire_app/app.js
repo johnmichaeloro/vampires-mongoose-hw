@@ -120,6 +120,38 @@ vampire.find({victims: {$gt:150, $lt:500}}, (err, foundVampire) => {
 });
 **/
 
+//Find with title property. Returns empty array.
+/**
+vampire.find({title: {$exists:true}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//No victims property
+/**
+vampire.find({victims: {$exists:false}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Has title & no Victims
+/**
+vampire.find({title: {$exists:true}, victims: {$exists:false}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
 
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
