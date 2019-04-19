@@ -153,6 +153,46 @@ vampire.find({title: {$exists:true}, victims: {$exists:false}}, (err, foundVampi
 });
 **/
 
+//In one location or another
+/**
+vampire.find({ $or: [{location:'New York, New York, US'}, {location:'New Orleans, Louisiana, US'}]}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+//Loves brooding or being tragic
+/**
+vampire.find({ $or: [{loves:'brooding'}, {loves:'being tragic'}]}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//More than 1000 victims or loves marshmellows
+/**
+vampire.find({ $or: [{victims:{$gt:1000}}, {loves:'marshmellows'}]}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Red hair or green eyes
+vampire.find({ $or: [{hair_color:'red'}, {eye_color:'green'}]}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
 
