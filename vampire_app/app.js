@@ -19,7 +19,7 @@ vampire.collection.insertMany(vampireData, (err, data) => {
   mongoose.connection.close();
 })
 **/
-
+/**
 vampire.create({
   name: "Brewhaha the Vampster",
   hair_color: 'green',
@@ -63,6 +63,63 @@ vampire.create({
     }
   }
 )
+**/
+
+//Find all female vampires
+/**
+vampire.find({gender: 'f'}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Victims over 500
+/**
+vampire.find({victims: {$gte: 500}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Less than or equal to 150
+/**
+vampire.find({victims:{$lte: 150}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Not equal to 210234
+/**
+vampire.find({victims: {$ne: 210234}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
+//Find more than 150 and less than 500
+/**
+vampire.find({victims: {$gt:150, $lt:500}}, (err, foundVampire) => {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(foundVampire);
+  }
+});
+**/
+
 
 /////////////////////////////////////////////////
 //Write your answers to add, query, update, remove, and Hungry for More below.
